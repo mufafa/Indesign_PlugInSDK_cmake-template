@@ -11,7 +11,7 @@ string(TOLOWER ${TARGET} genereted)
 if (APPLE)
   set(PLATFORM "mac")
 elseif(WIN)
-  set(PLATFORM "mac")
+  set(PLATFORM "win")
 endif()
 
 
