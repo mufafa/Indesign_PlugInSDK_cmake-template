@@ -38,24 +38,24 @@ add_library(${TARGET} SHARED
     # sourcefiles  
     ${SOURCE_FOLDER}/${genereted}ActionComponent.cpp
   )
-  #default source folderdaki dosyaları include dahil edelim
+  # include default source
   target_include_directories(${TARGET}  PRIVATE ${SOURCE_FOLDER})
 
   #add precompile_headers
   target_precompile_headers(${TARGET} PUBLIC ${INDESIGN_SDK}/source/precomp/gcc/PluginPrefix.pch)
 
   
-  #xcconfig'den gelen şeyler (Release için olanlar)
+  #xcconfig  (Release)
   add_compile_definitions(GCC_PREPROCESSOR_DEFINITIONS= ${GCC_PREPROCESSOR_DEFINITIONS} NDEBUG NS_BUILD_32_LIKE_64)
   add_compile_definitions(DEAD_CODE_STRIPPING= YES)
   
 
 
-  #InDesignPlugin framework tanımlama
+  #InDesignPlugin framework sets
   set_target_properties(${TARGET} PROPERTIES
   FRAMEWORK TRUE
   BUNDLE_EXTENSION "$ENV{WRAPPER_EXTENSION}"
-#  MACOSX_BUNDLE_BUNDLE_VERSION "1461"
+#  MACOSX_BUNDLE_BUNDLE_VERSION "1.0"
 #  MACOSX_BUNDLE_COPYRIGHT "18.0, Copyright 1999-2022 Adobe. All rights reserved."
   MACOSX_FRAMEWORK_IDENTIFIER com.adobe.InDesign.${TARGET}
   )
@@ -79,13 +79,13 @@ StringToHeader($ENV{HEADER_SEARCH_PATHS})
 
 
 
-# adobe'nin odfrc cmd sini kullanarak ResourceManagerResources oluşturuyoruz
+# odfrc ResourceManagerResources by using cmd
 include(cmake/PreBuild.cmake)
 execute_odfrc()
 
 # include(cmake/CopyResources.cmake)
 # copyResources()
-# ResourceManagerResources ile oluşturulan dosyaları resources altına kopyalıyoruz
+# copy files into resource ResourceManagerResources
 add_custom_command(TARGET ${TARGET}
   POST_BUILD
   COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_BINARY_DIR}/ResourceManagerResources/ $ENV{UNLOCALIZED_RESOURCES_FOLDER_PATH}
