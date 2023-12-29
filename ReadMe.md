@@ -12,4 +12,4 @@ cmake ..
 make
 ```
 
-This cmake project not tested in Windows platform.
+This cmake project will work only macOS platform :(
