@@ -1,4 +1,3 @@
-# bunu da kullanmıyoruz
 function(FindFramework)
         file(GLOB sub-dir ${FR_TEST}/*)
         foreach(dir ${sub-dir})
