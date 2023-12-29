@@ -1,6 +1,5 @@
 #env'de HEADER_SEARCH_PATHS ve REZ_SEARCH_PATHS değişkenlerine bakıyor
 
-
 function(execute_odfrc)
         if(APPLE)
             set (ODFRC_ADDITIONAL_FLAGS "-d MACINTOSH -d __GNUC__ -d ID_DROVER_ENABLE=1 -d ID_COCOA_ENABLE=1 -d DVAUI_ENABLE_CSNEXT_SKIN=1 -d __APPLE__")
