@@ -1,5 +1,5 @@
-# stringi listeye çeviriyor
-# input'dan gelen liste ; split edilip, output list'e prefix eklenerek append yapılıyor
+# convert string to list
+
 macro(StringToList input outlist prefix)
     string(REPLACE " " ";" output ${input})
     foreach(header ${output})
