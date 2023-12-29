@@ -1,4 +1,3 @@
-# bunu kullanmıyoruz
 function(copyResources)
         execute_process(
             COMMAND bash "-c" "${INDESIGN_SDK}/build/mac/packagescripts/copyResources.sh" 
